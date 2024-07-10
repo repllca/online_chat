@@ -1,11 +1,10 @@
-version: "3"
-sercices: 
+version: '3'
+services:
   app:
-    image: node:alpine
-    container_name: node
-    working_dir: /user/src/app
-    volumes: 
-    - type: build
-      source: ./app
-      target: /user/src/app
+    build: .
+    volumes:
+      - ./app:/usr/src/app
+    ports:
+      - 3001:3001
+    command: sh -c 'node server.js'
     tty: true
