@@ -4,7 +4,10 @@ services:
     build: .
     volumes:
       - ./app:/usr/src/app
+    # enviroment: 
+    #   - TZ = Asia/Tokyo
     ports:
       - 3001:3001
-    command: sh -c 'node server.js'
+    # command: sh -c 'node server.js'
+    
     tty: true
