@@ -1,13 +1,12 @@
 version: '3'
 services:
-  app:
+  frontend:
     build: .
+    environment:
+      - NODE_ENV=development
     volumes:
-      - ./app:/usr/src/app
-    # enviroment: 
-    #   - TZ = Asia/Tokyo
+      - ./:/usr/src/app
+    command: sh -c 'cd todo-react && yarn start'
     ports:
       - 3001:3001
-    # command: sh -c 'node server.js'
-    
     tty: true
